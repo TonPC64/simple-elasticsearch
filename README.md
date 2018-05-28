@@ -3,7 +3,7 @@
 ## install
 
 ```sh
-go get -u github.com:TonPC64/simple-elasticsearch
+go get -u github.com/TonPC64/simple-elasticsearch
 ```
 
 ## usage
