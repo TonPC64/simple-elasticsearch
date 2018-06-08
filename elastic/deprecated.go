@@ -4,8 +4,8 @@ import (
 	"errors"
 	"fmt"
 )
-
-// SetIndex Deprecated function (Use NewIndex)
+// SetIndex function (Use NewIndex)
+// Deprecated
 func (e *ElasticClient) SetIndex(Index string) (elasticIndex, error) {
 	if e.EndPoint == "" {
 		fmt.Println("Don't have endpoint.")
