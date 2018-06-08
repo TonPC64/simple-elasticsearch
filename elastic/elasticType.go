@@ -1,5 +1,6 @@
 package elastic
 
+// ElasticResGet type of response get elasticsearch
 type ElasticResGet struct {
 	Took     int  `json:"took"`
 	TimedOut bool `json:"timed_out"`
@@ -13,6 +14,7 @@ type ElasticResGet struct {
 	Aggregations *ElasticAggr `json:"aggregations"`
 }
 
+// ElasticHit type
 type ElasticHit struct {
 	Total    int `json:"total"`
 	MaxScore int `json:"max_score"`
@@ -25,6 +27,7 @@ type ElasticHit struct {
 	} `json:"hits"`
 }
 
+// ElasticAggr type
 type ElasticAggr struct {
 	ByType struct {
 		DocCount  int `json:"doc_count"`
@@ -44,6 +47,7 @@ type ElasticAggr struct {
 	} `json:"byType"`
 }
 
+// ElasticResPost type
 type ElasticResPost struct {
 	ID     string `json:"_id"`
 	Index  string `json:"_index"`
@@ -56,4 +60,9 @@ type ElasticResPost struct {
 	Version int    `json:"_version"`
 	Created bool   `json:"created"`
 	Result  string `json:"result"`
+}
+
+// ElasticIndex type
+type ElasticIndex struct {
+	elasticIndex
 }

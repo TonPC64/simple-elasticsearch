@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-type elasticHttp struct {
+type elasticHTTP struct {
 	EndPoint string
 	Index    string
 	Type     string
@@ -15,21 +15,21 @@ type elasticHttp struct {
 
 const typeJSON = "application/json"
 
-func (e *elasticHttp) POST(body io.Reader) (*http.Response, error) {
+func (e *elasticHTTP) POST(body io.Reader) (*http.Response, error) {
 	return http.Post(e.EndPoint+e.Path, typeJSON, body)
 }
 
-func (e *elasticHttp) PUT(body io.Reader) (*http.Response, error) {
+func (e *elasticHTTP) PUT(body io.Reader) (*http.Response, error) {
 	url := e.EndPoint + e.Path
 	return e.Request(http.MethodPut, url, "", body)
 }
 
-func (e *elasticHttp) GET() (*http.Response, error) {
+func (e *elasticHTTP) GET() (*http.Response, error) {
 	url := e.EndPoint + e.Path
 	return e.Request(http.MethodGet, url, "", nil)
 }
 
-func (e *elasticHttp) Request(medthod, url, contentType string, body io.Reader) (*http.Response, error) {
+func (e *elasticHTTP) Request(medthod, url, contentType string, body io.Reader) (*http.Response, error) {
 	c := http.DefaultClient
 	req, err := http.NewRequest(medthod, url, body)
 
